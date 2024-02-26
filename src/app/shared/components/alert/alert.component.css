@@ -1,0 +1,46 @@
+.alert {
+  position: absolute;
+  top: 120px;
+  right: 50px;
+  width: 25%;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  font-size: 14px;
+}
+
+.alert-warning {
+  background-color: #f8f9fa;
+  border-color: #dee2e6;
+}
+
+.alert-warning strong {
+  font-weight: bold;
+}
+
+.alert .btn-close {
+  color: inherit;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.alert .btn-close:focus {
+  outline: none;
+}
+
+.alert .btn-close span {
+  font-size: 25px;
+}
+
+@media screen and (max-width: 768px) {
+  .alert {
+    right: auto;
+    width: -webkit-fill-available;
+    margin: 25px;
+  }
+}

@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="container__listado">
+        <div class="container_listado_acciones">
+            <app-search-box (busquedaEmit)="busquedaProductos($event)"></app-search-box>
+            <button class="container_listado_btn" (click)="crear()">Agregar</button>
+        </div>
+        <app-products-table [filtrarProductos]="filtroProducto"></app-products-table>
+    </div>
+</div>
+<app-modal></app-modal>

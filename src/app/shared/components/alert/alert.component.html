@@ -1,0 +1,6 @@
+<div class="alert alert-warning" role="alert" *ngIf="message">
+  <div class="alert-text" [innerHTML]="message"></div>
+  <button type="button" class="btn-close" aria-label="close" (click)="closeAlert()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>

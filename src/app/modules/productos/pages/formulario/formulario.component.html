@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="bd-example">
+    <form [formGroup]="form" (ngSubmit)="enviar()">
+      <div class="container-form">
+        <h1>Formulario de Registro</h1>
+        <div class="container-form-input-group">
+          <div class="input-group">
+            <div class="container-form-input">
+              <label for="id">ID</label>
+              <input type="text" 
+                id="id" 
+                class="form-control" 
+                [ngClass]="{'input-error': form.get('id')?.invalid && (form.get('id')?.dirty || form.get('id')?.touched)}"
+                [ngClass]="{'input-disabled':exiteProducto}"
+                formControlName="id"
+              >
+              <small class="error-message" *ngIf="submitted && form.get('id')?.hasError('required')">Este campo es requerido!</small>
+              <small class="error-message" *ngIf="submitted && form.get('id')?.hasError('minlength')">Mínimo 3 caracteres</small>
+              <small class="error-message" *ngIf="submitted && form.get('id')?.hasError('maxlength')">Máximo 10 caracteres</small>
+              <small class="error-message" *ngIf="submitted && form.get('id')?.hasError('pattern')">ID no válido!</small>
+            </div>
+            <div class="container-form-input">
+              <label for="name">Nombre</label>
+              <input type="text" 
+                id="name" 
+                class="form-control" 
+                [ngClass]="{'input-error': form.get('name')?.invalid && (form.get('name')?.dirty || form.get('name')?.touched)}"
+                formControlName="name"
+              >
+              <small class="error-message" *ngIf="submitted && form.get('name')?.hasError('required')">Este campo es requerido!</small>
+              <small class="error-message" *ngIf="submitted && form.get('name')?.hasError('minlength')">Mínimo 5 caracteres</small>
+              <small class="error-message" *ngIf="submitted && form.get('name')?.hasError('maxlength')">Máximo 100 caracteres</small>
+            </div>
+          </div>
+          <div class="input-group">
+            <div class="container-form-input">
+              <label for="description">Descripción</label>
+              <input type="text" 
+                id="description" 
+                class="form-control" 
+                [ngClass]="{'input-error': form.get('description')?.invalid && (form.get('description')?.dirty || form.get('description')?.touched)}"
+                formControlName="description"
+              >
+              <small class="error-message" *ngIf="submitted && form.get('description')?.hasError('required')">Este campo es requerido!</small>
+              <small class="error-message" *ngIf="submitted && form.get('description')?.hasError('minlength')">Mínimo 10 caracteres</small>
+              <small class="error-message" *ngIf="submitted && form.get('description')?.hasError('maxlength')">Máximo 200 caracteres</small>
+            </div>
+            <div class="container-form-input">
+              <label for="logo">Logo</label>
+              <input type="text" 
+                id="logo" 
+                class="form-control" 
+                [ngClass]="{'input-error': form.get('logo')?.invalid && (form.get('logo')?.dirty || form.get('logo')?.touched)}"
+                formControlName="logo"
+              >
+              <small class="error-message" *ngIf="submitted && form.get('logo')?.hasError('required')">Este campo es requerido!</small>
+            </div>
+          </div>
+          <div class="input-group">
+            <div class="container-form-input">
+              <label for="date_release">Fecha Liberación</label>
+              <input type="text" 
+                id="date_release" 
+                class="form-control" 
+                [ngClass]="{'input-error': form.get('date_release')?.invalid && (form.get('date_release')?.dirty || form.get('date_release')?.touched)}"
+                formControlName="date_release"
+                placeholder="dd/mm/yyyy"
+                (input)="eliminarEspacios('date_release')"
+              >
+              <small class="error-message" *ngIf="submitted && form.get('date_release')?.hasError('required')">Este campo es requerido!</small>
+              <small class="error-message" *ngIf="submitted && form.controls['date_release'].errors">{{ form.controls['date_release'].errors['error'] }}</small>
+            </div>
+            <div class="container-form-input">
+              <label for="date_revision">Fecha Revisión</label>
+              <input type="text" 
+                id="date_revision" 
+                class="form-control input-disabled" 
+                formControlName="date_revision"
+                placeholder="dd/mm/yyyy"
+              >
+              <small class="error-message" *ngIf="submitted && form.get('date_revision')?.hasError('required')">Este campo es requerido!</small>
+            </div>
+          </div>
+        </div>
+        <div class="container-form-button-action">
+          <button class="reiniciar-btn" (click)="form.reset()" [disabled]="loading">Reiniciar</button>
+          <button type="submit" class="enviar-btn" [disabled]="loading">Enviar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

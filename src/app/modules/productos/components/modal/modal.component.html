@@ -1,0 +1,11 @@
+<ng-container *ngIf="producto">
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <p>¿Estás seguro de eliminar el producto {{ texto }}?</p>
+      <div class="modal-buttons">
+        <button class="cancelBtn" (click)="ocultar()">Cancelar</button>
+        <button class="acceptBtn" (click)="eliminar()">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</ng-container>

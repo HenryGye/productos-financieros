@@ -1,0 +1,94 @@
+.bd-example {
+    --bd-example-padding: 1rem;
+    position: relative;
+    padding: var(--bd-example-padding);
+    border: solid var(--bs-border-color);
+    border-width: 1px 0;
+    background-color: #fff;
+    overflow-x: auto;
+    font-size: 14px;
+}
+
+/* Estilo para la tabla */
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    border-collapse: collapse;
+}
+
+/* Estilo para las filas */
+.table tr {
+    background-color: #fff;
+    border-top: 1px solid #dee2e6;
+}
+
+/* Estilo para las celdas */
+.table td,
+.table th {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+/* Estilo para el encabezado de la tabla */
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+    text-align: left;
+}
+
+/* Estilo para las filas con fondo gris claro */
+.table-light tbody+tbody,
+.table-light td,
+.table-light th,
+.table-light thead th {
+    border-color: #dee2e6;
+    background-color: #f8f9fa;
+}
+
+.table td:first-child {
+    text-align: center;
+}
+
+.table td .img-logo,
+.table td .no-logo {
+    border-radius: 50%;
+}
+
+.table td .img-logo {
+    object-fit: cover;
+}
+
+.table td .no-logo {
+    width: 30px;
+    height: 30px;
+    background-color: #c0c7d9;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+}
+
+.bd-example-footer {
+    display: flex;
+    justify-content: space-between;
+}
+  
+.skeleton-cell div {
+    height: 10px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #f0f0f0, #ddd, #f0f0f0);
+    background-size: 200% 100%;
+    animation: skeleton-animation 1.5s infinite linear;
+    margin: 4px 0;
+}
+  
+@keyframes skeleton-animation {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+}
+  

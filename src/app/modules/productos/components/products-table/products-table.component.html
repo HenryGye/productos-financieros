@@ -1,0 +1,57 @@
+<div class="bd-example">
+  <table class="table table-responsive">
+    <thead class="table-light">
+      <tr>
+        <th scope="col">Logo</th>
+        <th scope="col">Nombre del producto</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Fecha de liberación</th>
+        <th scope="col">Fecha de reestructuración</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngIf="isLoading; else dataRows">
+        <tr class="skeleton-row" *ngFor="let _ of conteoRegistros">
+          <td class="skeleton-cell"><div></div></td>
+          <td class="skeleton-cell"><div></div></td>
+          <td class="skeleton-cell"><div></div></td>
+          <td class="skeleton-cell"><div></div></td>
+          <td class="skeleton-cell"><div></div></td>
+          <td class="skeleton-cell"><div></div></td>
+        </tr>
+      </ng-container>
+      <ng-template #dataRows>
+        <tr *ngFor="let item of productos">
+          <td>
+            <ng-container *ngIf="item.logo && validarURL(item.logo); else noLogo">
+              <img src="{{ item.logo }}" alt="logo" class="img-logo" width="30px" height="30px">
+            </ng-container>
+            <ng-template #noLogo>
+              <div class="no-logo">JG</div>
+            </ng-template>
+          </td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.description }}</td>
+          <td>{{ item.date_release | customDateFormat }}</td>
+          <td>{{ item.date_revision | customDateFormat }}</td>
+          <td>
+            <app-drop-down [producto]="item"></app-drop-down>
+          </td>
+        </tr>
+      </ng-template>
+    </tbody>
+  </table>
+  <div class="bd-example-footer">
+    <div>{{ cantidadResultados }} Resultados</div>
+    <div>
+      <select class="form-control" aria-label="Default select example" (change)="seleccionarCantidadRegistros($event)">
+        <option [value]="item" 
+          *ngFor="let item of cantidadRegistros; let i = index"
+          [selected]="i === 0 ? true : null">
+          {{item}}
+        </option>
+      </select>
+    </div>
+  </div>
+</div>
