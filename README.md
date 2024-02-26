@@ -16,5 +16,5 @@ Gestionar productos financieros mediante una aplicación web CRUD por medio del 
 * Abrir una ventana de comandos y ejecutar `git clone https://github.com/HenryGye/productos-financieros.git`
 * Una vez temrinado, ingresar al directorio productos-financieros `cd productos-financieros`
 * Ejecutar `npm install`
-* Ejecutar `ng server`
+* Ejecutar `ng serve`
 * Navegar a la url `http://localhost:4200/`. Por defecto se abre automáticamente una ventana del navegador en esa url. En caso de no estar disponible el puerto 4200, en la ventana de comandos se indicará para ejecutar en otro puerto, se debe aceptar la opción.
